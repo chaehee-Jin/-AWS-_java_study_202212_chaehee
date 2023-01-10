@@ -8,7 +8,8 @@ public class j12_UserRepository {
 	public j12_UserRepository(j12_User[] userTable) {
 		this.userTable = userTable;
 	}
-	public j12_User[] getterTable() { //외부에서 가지고오기 위해서 Getter필요(Private이기때문)
+
+	public j12_User[] getUserTable() { // 외부에서 가지고오기 위해서 Getter필요(Private이기때문)
 		return userTable;
 	}
 
@@ -36,4 +37,26 @@ public class j12_UserRepository {
 		}
 
 	}
+
+	public j12_User findUsername(String username) {
+		j12_User user = null;
+		
+		
+		
+		for (j12_User u : userTable) {
+			if (u == null) { // 항상 객체는  null 체크 해주어야함 
+				continue;
+			}
+			else if (u.getUsername().equals(username)) {// 등록과 조회에 사용가능 
+				user = u;
+				break;
+			
+					
+				}
+		}
+		
+		return user;
+	}
+
+	
 }

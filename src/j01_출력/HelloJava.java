@@ -1,5 +1,7 @@
 package j01_출력;
 
+import j17_Static.스태틱.싱글톤.KIA;
+
 public class HelloJava {
 		// TODO Auto-generated method stub
 		
@@ -20,6 +22,10 @@ public class HelloJava {
 			System.out.println("주소: 창원시 진해구 용원동 ");	
 			System.out.println("연락처: 010-9442-0688");
 			System.out.println("수업: AWS기반 공공빅데이터 활용 웹개발자 양성");
+			
+			System.out.println();
+			
+			KIA.getInstance().printCompanyName();
 			
 		}
 		

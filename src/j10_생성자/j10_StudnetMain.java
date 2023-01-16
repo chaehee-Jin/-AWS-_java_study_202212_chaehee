@@ -1,7 +1,5 @@
 package j10_생성자;
 
-import j11_접근지정자.default1.j11_StudentDefault;
-
 public class j10_StudnetMain {
 
 	public static void main(String[] args) {

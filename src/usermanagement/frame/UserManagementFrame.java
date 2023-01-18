@@ -6,8 +6,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.google.gson.JsonObject;
 
+import j20_JSON.builder.User;
+import usermanagement.repository.UserRepository;
 import usermanagement.service.UserService;
 
 import java.awt.CardLayout;
@@ -22,6 +26,7 @@ import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -92,7 +97,8 @@ public class UserManagementFrame extends JFrame {
 		loginText.setHorizontalAlignment(SwingConstants.CENTER);
 		loginText.setBounds(124, 60, 125, 40);
 		loginPanel.add(loginText);
-
+		
+     
 		usernameField = new JTextField();
 		usernameField.setBounds(42, 145, 293, 27);
 		loginPanel.add(usernameField);
@@ -118,6 +124,24 @@ public class UserManagementFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("로그인 요청되었습니다");
+				
+				JsonObject userJson = new JsonObject();
+				
+				
+			//아이디가 존재하는지 아이디 비교
+				// username 
+				//String nu=  new String();
+				//String nu = BCrypt.hashpw(user.getusername(), BCrypt.gensalt());
+				// 
+				
+				
+				// 기존의 비밀번호와 새로운 비밀번호가 맞는지 비교
+			  // user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+				//String np = BCrypt.hashpw("", BCrypt.gensalt());
+						
+						
+				//if(UserRepository.equals())
+				
 			}
 		});
 		loginButton.setFont(new Font("Arial Black", Font.PLAIN, 14));
@@ -267,5 +291,8 @@ public class UserManagementFrame extends JFrame {
 			}
 			field.setText("");
 		}
+		
+		
+		
 	}
 }

@@ -22,7 +22,7 @@ public class UserSelect {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		// 커넥션에 연결이 안될경우가 있어서 예외처린
+		// 커넥션에 연결이 안될경우가 있어서 예외처리
 		try {
 			con = pool.getConnection();
 
@@ -41,7 +41,12 @@ public class UserSelect {
 						.email(rs.getString(5))
 						.build();	
 				
-				// = System.out.println 
+				// user에다가 넣을수 없음, 정보 확인용
+				//  System.out.println(rs.getInt(1));
+				//  System.out.println(rs.getStirng(2));
+				// System.out.println(rs.getString(3));
+				// System.out.println(rs.getString(4));
+				// System.out.println(rs.getString(5));
 				
 			}
 

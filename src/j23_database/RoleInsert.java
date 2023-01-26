@@ -28,7 +28,7 @@ public class RoleInsert {
 		ResultSet rs =null;
 		
 		try {// try ~ catch를 이용해서 예외처리를 함 , 커넥션을 했을 때 연결안될수도 있기 때문에 예외처리
-			con = pool.getConnection(); // 가져온 데이터를 저장 , 근데 무슨데이터를 ?? 키값을??? 
+			con = pool.getConnection(); // 자바 디비 연결
 			sql =  "insert into role_mst values(0, ?)";
 			// 값이 무엇이 들어올지 모르니 ?으로 지정, 후에 ?에 값을 넣어준다 
 			pstmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -51,7 +51,8 @@ public class RoleInsert {
 				newKey = rs.getInt(1);
 				// 1을 넣은이유는 rs의 열의 위치를 지정하기 때문 
 				//get은 들고오는 것이니 들고온 값을 List에 넣음
-				// 근데 우리가 한 것에는 List가 없는딩..?
+			
+			
 				
 			}
 			

@@ -246,10 +246,13 @@ public class UserManagementFrame extends JFrame {
 
 				UserService userService = UserService.getInstance();
 				Map<String, String> response = userService.register(userJson.toString());
+				// user service에서 리턴된 값이 들어옴, 에러가 있으면 에러를 띄워달라
 
 				if (response.containsKey("error")) {
 					JOptionPane.showMessageDialog(null, response.get("error"), "error", JOptionPane.ERROR_MESSAGE);
 					return;
+					// 마우스 클릭 메소드가 실행중인데 밑에것을 실행하지 못하도록 리턴
+					// 공백이 하나도 없으면 회원가입 진행
 
 				}
 				JOptionPane.showMessageDialog(null, response.get("ok"), "ok", JOptionPane.INFORMATION_MESSAGE);

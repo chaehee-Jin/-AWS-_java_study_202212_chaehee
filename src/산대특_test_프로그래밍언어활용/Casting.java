@@ -1,3 +1,4 @@
+package 산대특_test_프로그래밍언어활용;
 
 abstract class Program {
 	public abstract void develop();

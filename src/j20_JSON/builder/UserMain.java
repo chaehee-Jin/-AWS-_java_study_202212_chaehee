@@ -15,6 +15,8 @@ public class UserMain {
 				.build();
 		System.out.println(user2);
 		
+		new User.UserBuilder();
+		
 
 	}
 }

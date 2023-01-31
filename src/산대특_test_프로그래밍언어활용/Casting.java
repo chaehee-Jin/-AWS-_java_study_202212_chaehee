@@ -41,6 +41,7 @@ public abstract class Casting {
 
 		for (int i = 0; i < programs.length; i++) {
 			programs[i].develop();
+			//다운 캐스팅
 			if (programs[i].getClass() == Java.class) {
 				Java java = (Java) programs[i];
 				java.garbageCollection();

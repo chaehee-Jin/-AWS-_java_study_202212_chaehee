@@ -1,7 +1,5 @@
 package 산대특_test_프로그래밍언어응용;
 
-public class Factory {
-
 //	private static Factory instance = new Factory();
 //
 //	private Factory() {
@@ -11,17 +9,39 @@ public class Factory {
 //	public static Factory getInstnace() {
 //		return instance;
 //	}
-	
-	private static Factory instnace = null;
+class Factory {
+
 	private String factoryName;
-	private Factory() {}
-	
-	public static Factory getInFactory() {
-		if(instnace == null) {
-			
+
+	private Factory() {
+	};
+
+	private static Factory instance = null;
+
+	public static Factory getInstance() {
+
+		if (instance == null) {
+
+			instance = new Factory();
+
 		}
-		return instnace;
-		
+
+		return instance;
+
 	}
 
 }
+
+//	private static Factory instnace = null;
+//	private String factoryName;
+//	private Factory() {}
+//	
+//	public static Factory getInFactory() {
+//		if(instnace == null) {
+//			
+//		}
+//		return instnace;
+//		
+//	}
+//
+//}

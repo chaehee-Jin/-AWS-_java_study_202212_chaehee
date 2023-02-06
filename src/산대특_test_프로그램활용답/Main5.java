@@ -33,11 +33,12 @@ class Car {
 //	}
 	@Override
 	public String toString() {
-		return "[자동차 정보] 제조사: "+"\ncompany:"+company+"\nmodel:"+model+"\ncolor:"+color;
+		return "[자동차 정보] 제조사: " + "\ncompany:" + company + "\nmodel:" + model + "\ncolor:" + color;
 	}
 
 }
-public class Main5{
+
+public class Main5 {
 	public static void main(String[] args) {
 		Car car = new Car("현대자동차", "그랜저", "화이트");
 		System.out.println(car);

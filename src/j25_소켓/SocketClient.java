@@ -4,8 +4,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
+
+import com.google.gson.Gson;
+
+import usermanagement.dto.RequestDto;
+
+
 
 public class SocketClient {
 
@@ -21,7 +29,17 @@ public class SocketClient {
 			// 한바이트씩 읽음 
 			// while을 돌려서 한글자씩 나오는 것을 올려줌 
 			// BufferedREader을 사용하면 while을 사용할 필요없이 Buffer의 공간에 하나씩 정리하여서 한꺼번에 들고옴 
-			System.out.println(reader.readLine());
+			
+			//System.out.println(reader.readLine());
+			
+			OutputStream outputStream = socket.getOutputStream();
+			PrintWriter printWriter = new PrintWriter(outputStream, true);
+			
+			Gson gson = new Gson();
+			
+			RequestDto<String> dto = new RequestDto<String>("test", "테스트데이터");
+			
+			printWriter.println(gson.toJson(dto));
 			
 
 		} catch (UnknownHostException e) { // 아이피를 잡지 못했을 때

@@ -23,23 +23,24 @@ public class SocketServer extends Thread {
 
 	private static List<SocketServer> SocketServerList = new ArrayList<>();
 
-	private Socket socket;
+	private Socket socket; // 클라이언트마다 하나의 소켓을 생성한다
 	private InputStream inputStream;
 	private OutputStream outputStream;
 	private Gson gson;
 
 	public SocketServer(Socket socket) {
 		this.socket = socket;
-		gson = new Gson();
+		gson = new Gson(); 
 		SocketServerList.add(this);
 	}
 
 	@Override
 	public void run() {
 		try {
-			reciveRequest();
+			reciveRequest(); //요청을 받음 
 		} catch (IOException e) {
 			System.out.println(socket.getInetAddress() + ":" + socket.getPort() + "클라이언트와 접속이 끊어졌습니다");
+			// run이 종료 = 무한루프 종료
 		}
 
 	}
@@ -49,7 +50,7 @@ public class SocketServer extends Thread {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
 		while (true) {
-			String request = reader.readLine();
+			String request = reader.readLine(); //Json으로 들어옴 
 			if (request == null) {
 				throw new ConnectException();
 			}
@@ -60,18 +61,16 @@ public class SocketServer extends Thread {
 	// 리소스를 매핑하는 부분
 	private void RequestMapping(String request) throws IOException {
 		
-		RequestDto<?> requestDto = gson.fromJson(request, RequestDto.class);
+		RequestDto<?> requestDto = gson.fromJson(request, RequestDto.class); 
 		// System.out.println(requestDto);
 		String resource = requestDto.getResource();
 		switch (resource) {
 		case "register":
-			User user = gson.fromJson((String)requestDto.getBody(), User.class);
+			//회원가입
 			
-			ResponseDto<?> responseDto = AccountController.getInstance().register(user);	
+			ResponseDto<?> responseDto = AccountController.getInstance().register((String)requestDto.getBody());	
 			sendResponse(responseDto);
 			
-			
-
 			break;
 		default:
 			System.out.println("해당 요청은 처리할 수 없습니다.(404)");

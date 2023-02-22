@@ -188,6 +188,7 @@ public class ChattingClient extends JFrame {
 		contentPane.add(portInput);
 		portInput.setColumns(10);
 
+		//메세지를 받는부분
 		JScrollPane contentScroll = new JScrollPane();
 		contentScroll.setBounds(12, 7, 287, 234);
 		contentPane.add(contentScroll);
@@ -195,6 +196,7 @@ public class ChattingClient extends JFrame {
 		contentView = new JTextArea();
 		contentScroll.setViewportView(contentView);
 
+		// 채팅 유저들을 보여주는 부분
 		JScrollPane userListScroll = new JScrollPane();
 		userListScroll.setBounds(312, 41, 224, 200);
 		contentPane.add(userListScroll);
@@ -203,6 +205,7 @@ public class ChattingClient extends JFrame {
 		userList = new JList<String>(userListModel);
 		userListScroll.setViewportView(userList);
 
+		// 메세지를 보내는 부분 
 		JScrollPane messageScroll = new JScrollPane();
 		messageScroll.setBounds(12, 254, 419, 68);
 		contentPane.add(messageScroll);
